@@ -78,4 +78,4 @@ def pricing():
     return render_template("pricing.html")
 @main.route("/faq")
 def faq():
-    return render_template("FAQ.html")
+    return render_template("faq.html")
