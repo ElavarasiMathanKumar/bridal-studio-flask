@@ -11,7 +11,7 @@
 <section class="my-5">
     <div class="booking-container shadow p-4 rounded" data-animate>
 
-        <form action="{{ url_for('main.booking') }}" method="POST">
+        <form id="bookingForm">
 
             <!-- Name -->
             <div class="mb-3">
@@ -68,5 +68,47 @@
 
     </div>
 </section>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // ✅ Show popup
+    document.getElementById("successPopup").style.display = "flex";
+
+    let name = document.querySelector("input[name='name']").value;
+    let phone = document.querySelector("input[name='phone']").value;
+    let service = document.querySelector("select[name='service']").value;
+    let date = document.querySelector("input[name='date']").value;
+    let time = document.querySelector("input[name='time']").value;
+    let message = document.querySelector("textarea[name='message']").value;
+
+    let whatsappNumber = "918870685588"; // ✅ Your WhatsApp number
+
+    let whatsappURL =
+        "https://api.whatsapp.com/send?phone=" + whatsappNumber +
+        "&text=" + encodeURIComponent(
+            "New Booking Request:\n" +
+            "-------------------------\n" +
+            "Name: " + name + "\n" +
+            "Phone: " + phone + "\n" +
+            "Service: " + service + "\n" +
+            "Date: " + date + "\n" +
+            "Time: " + time + "\n" +
+            "Notes: " + message
+        );
+
+    // ✅ Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // ✅ Clear form
+    document.getElementById("bookingForm").reset();
+
+    // ✅ Hide popup after 3 seconds
+    setTimeout(() => {
+        document.getElementById("successPopup").style.display = "none";
+    }, 3000);
+});
+</script>
 
 {% endblock %}
