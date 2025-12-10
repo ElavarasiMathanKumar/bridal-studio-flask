@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ✅ PAGE TITLE -->
+<div class="text-center my-4 fade-up">
+    <h1 class="display-5 fw-bold text-dark">Contact Us</h1>
+    <p class="lead text-muted">We’d love to hear from you</p>
+</div>
+
+<!-- ✅ CONTACT SECTION -->
+<section class="my-5">
+    <div class="row g-4">
+
+        <!-- ✅ CONTACT INFO -->
+        <div class="col-md-5 fade-up">
+            <div class="contact-info-box shadow-sm p-4 rounded">
+
+                <h4 class="fw-bold mb-3">Get in Touch</h4>
+
+                <p class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <strong>Phone:</strong> +91 88706 85588
+                </p>
+
+                <p class="contact-item">
+                    <span class="contact-icon">💬</span>
+                    <strong>WhatsApp:</strong> +91 88706 85588
+                </p>
+
+                <p class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <strong>Email:</strong> bridalstudio@example.com
+                </p>
+
+                <p class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <strong>Location:</strong> Karaikal, Puducherry, India
+                </p>
+
+            </div>
+        </div>
+
+        <!-- ✅ CONTACT FORM -->
+        <div class="col-md-7 fade-up">
+            <div class="contact-form-box shadow-sm p-4 rounded">
+
+                <form id="contactForm">
+
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Your Name</label>
+                        <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter your name" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Email Address</label>
+                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter your email" required>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Message</label>
+                        <textarea name="message" class="form-control" rows="5" placeholder="Write your message..." required></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-dark btn-lg px-5">
+                            Send Message
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ✅ SUCCESS POPUP -->
+<div id="successPopup" class="success-popup">
+    <div class="popup-box">
+        <h4>Opening WhatsApp…</h4>
+        <p>Please click “Continue to WhatsApp” to send your message.</p>
+    </div>
+</div>
+
+<!-- ✅ WHATSAPP SCRIPT -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // ✅ Show popup
+    document.getElementById("successPopup").style.display = "flex";
+
+    let name = document.querySelector("input[name='name']").value;
+    let email = document.querySelector("input[name='email']").value;
+    let message = document.querySelector("textarea[name='message']").value;
+
+    let whatsappNumber = "918870685588"; // ✅ Your WhatsApp number
+
+    let whatsappURL = "https://api.whatsapp.com/send?phone=" + whatsappNumber +
+        "&text=" + encodeURIComponent(
+            "New Contact Message:\n" +
+            "-------------------------\n" +
+            "Name: " + name + "\n" +
+            "Email: " + email + "\n" +
+            "Message: " + message
+        );
+
+    // ✅ Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // ✅ Clear form
+    document.getElementById("contactForm").reset();
+
+    // ✅ Hide popup after 3 seconds
+    setTimeout(() => {
+        document.getElementById("successPopup").style.display = "none";
+    }, 3000);
+});
+</script>
+
+{% endblock %}

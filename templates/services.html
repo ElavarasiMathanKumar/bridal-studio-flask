@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- PAGE TITLE -->
+<div class="text-center my-4" data-animate>
+    <h1 class="display-5 fw-bold text-dark">Our Services</h1>
+    <p class="lead text-muted">Premium Makeup • Hairstyling • Bridal Packages</p>
+</div>
+
+<!-- SERVICES GRID -->
+<section class="my-5">
+    <div class="row g-4">
+
+        <!-- Bridal Makeup -->
+        <div class="col-md-4" data-animate>
+            <div class="service-box shadow-sm p-4 rounded text-center">
+                <div class="service-icon-large">💄</div>
+                <h3 class="fw-bold mt-3">Bridal Makeup</h3>
+                <p class="text-muted">
+                    HD, Airbrush, and Soft Glam bridal looks crafted to perfection for your big day.
+                </p>
+                <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-2">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Hairstyling -->
+        <div class="col-md-4" data-animate>
+            <div class="service-box shadow-sm p-4 rounded text-center">
+                <div class="service-icon-large">💇‍♀️</div>
+                <h3 class="fw-bold mt-3">Bridal Hairstyling</h3>
+                <p class="text-muted">
+                    Elegant buns, curls, braids, and modern bridal hairstyles that last all day.
+                </p>
+                <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-2">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Party Makeup -->
+        <div class="col-md-4" data-animate>
+            <div class="service-box shadow-sm p-4 rounded text-center">
+                <div class="service-icon-large">✨</div>
+                <h3 class="fw-bold mt-3">Party Makeup</h3>
+                <p class="text-muted">
+                    Glamorous looks for receptions, photoshoots, and special events.
+                </p>
+                <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-2">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Saree Draping -->
+        <div class="col-md-4" data-animate>
+            <div class="service-box shadow-sm p-4 rounded text-center">
+                <div class="service-icon-large">🧵</div>
+                <h3 class="fw-bold mt-3">Saree Draping</h3>
+                <p class="text-muted">
+                    Traditional, modern, and bridal saree draping styles with perfect finishing.
+                </p>
+                <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-2">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Mehandi -->
+        <div class="col-md-4" data-animate>
+            <div class="service-box shadow-sm p-4 rounded text-center">
+                <div class="service-icon-large">🌿</div>
+                <h3 class="fw-bold mt-3">Mehandi</h3>
+                <p class="text-muted">
+                    Beautiful bridal and party mehandi designs with rich color and detail.
+                </p>
+                <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-2">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Full Bridal Package -->
+        <div class="col-md-4" data-animate>
+            <div class="service-box shadow-sm p-4 rounded text-center">
+                <div class="service-icon-large">👑</div>
+                <h3 class="fw-bold mt-3">Full Bridal Package</h3>
+                <p class="text-muted">
+                    Makeup + Hairstyle + Saree Draping + Accessories — complete bridal transformation.
+                </p>
+                <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-2">Book Now</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- PAGE TITLE -->
+<div class="text-center my-4" data-animate>
+    <h1 class="display-5 fw-bold text-dark">Book Your Appointment</h1>
+    <p class="lead text-muted">We’re excited to glam you up for your special day</p>
+</div>
+
+<!-- BOOKING FORM -->
+<section class="my-5">
+    <div class="booking-container shadow p-4 rounded" data-animate>
+
+        <form action="{{ url_for('main.booking') }}" method="POST">
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Full Name</label>
+                <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter your name" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Phone Number</label>
+                <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Service -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Select Service</label>
+                <select name="service" class="form-select form-select-lg" required>
+                    <option value="">Choose a service</option>
+                    <option>Bridal Makeup</option>
+                    <option>Bridal Hairstyling</option>
+                    <option>Party Makeup</option>
+                    <option>Saree Draping</option>
+                    <option>Mehandi</option>
+                    <option>Full Bridal Package</option>
+                </select>
+            </div>
+
+            <!-- Date -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Preferred Date</label>
+                <input type="date" name="date" class="form-control form-control-lg" required>
+            </div>
+
+            <!-- Time -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Preferred Time</label>
+                <input type="time" name="time" class="form-control form-control-lg" required>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Additional Notes</label>
+                <textarea name="message" class="form-control" rows="4" placeholder="Any special requests?"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-dark btn-lg px-5">
+                    Confirm Booking
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+html {
+    scroll-behavior: smooth;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridal Studio</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Simple fade-in animation -->
+    <style>
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all .6s ease;
+        }
+        [data-animate].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar Styling */
+        .navbar-custom {
+            background: #fff;
+            padding: 12px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-custom a {
+            margin: 0 12px;
+            font-weight: 600;
+            color: #444;
+            text-decoration: none;
+        }
+
+        .navbar-custom a.active {
+            color: #d63384;
+            border-bottom: 2px solid #d63384;
+            padding-bottom: 4px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            .navbar-custom {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+            }
+            .navbar-custom.open {
+                display: flex;
+            }
+            .navbar-custom a {
+                padding: 12px 0;
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            font-size: 26px;
+            padding: 12px 16px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+    <!-- MOBILE MENU BUTTON -->
+    <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top premium-navbar">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="{{ url_for('main.home') }}">
+            Bridal Studio
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{{ url_for('main.home') }}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {% if 'services' in request.path %}active{% endif %}" href="{{ url_for('main.services_page') }}">Services</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {% if 'gallery' in request.path %}active{% endif %}" href="{{ url_for('main.gallery_page') }}">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {% if 'pricing' in request.path %}active{% endif %}" href="{{ url_for('main.pricing') }}">Pricing</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {% if 'faq' in request.path %}active{% endif %}" href="{{ url_for('main.faq') }}">FAQ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {% if 'booking' in request.path %}active{% endif %}" href="{{ url_for('main.booking') }}">Booking</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {% if 'contact' in request.path %}active{% endif %}" href="{{ url_for('main.contact') }}">Contact</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Add spacing so content doesn't hide behind navbar -->
+<div style="height: 80px;"></div>
+    <!-- MAIN CONTENT -->
+    <main class="container py-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="whatsapp-btn">💬</a>
+<!-- CALL FLOATING BUTTON -->
+<footer class="premium-footer mt-5">
+    <div class="container text-center py-4">
+
+        <h4 class="fw-bold mb-3">Bridal Studio</h4>
+
+        <p class="text-muted mb-2">Karaikal, Puducherry, India</p>
+        <p class="text-muted mb-2">Phone: +91 XXXXX XXXXX</p>
+        <p class="text-muted mb-4">Email: bridalstudio@example.com</p>
+
+        <p class="small text-muted">
+            © 2025 Bridal Studio — All Rights Reserved.
+        </p>
+    </div>
+</footer>
+
+    <!-- Animation Script -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("navbar").classList.toggle("open");
+        }
+
+        // Fade-in animation
+        const elements = document.querySelectorAll("[data-animate]");
+        function reveal() {
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    el.classList.add("visible");
+                }
+            });
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+    </script>
+    <script>
+document.addEventListener("scroll", () => {
+    document.querySelectorAll(".fade-up, .fade-in").forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+            el.classList.add("visible");
+        }
+    });
+});
+</script>
+<script>
+    // Hide preloader when page fully loads
+    window.addEventListener("load", function() {
+        const preloader = document.getElementById("preloader");
+        preloader.style.opacity = "0";
+        preloader.style.transition = "opacity 0.6s ease";
+
+        setTimeout(() => {
+            preloader.style.display = "none";
+        }, 600);
+    });
+</script>
+<!-- Add in <head> or before </body> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function openLightbox(img) {
+    document.getElementById("lightbox-img").src = img.src;
+    document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+</body>
+</html>

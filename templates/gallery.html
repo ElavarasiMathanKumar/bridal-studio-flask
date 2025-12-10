@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- PAGE TITLE -->
+<div class="text-center my-4" data-animate>
+    <h1 class="display-5 fw-bold text-dark">Gallery</h1>
+    <p class="lead text-muted">A glimpse of our bridal transformations</p>
+</div>
+
+<!-- GALLERY GRID -->
+<section class="my-5">
+    <div class="gallery-grid">
+
+        <!-- Image 1 -->
+        <div class="gallery-item" data-animate>
+            <img src="{{ url_for('static', filename='bridal2.jpg') }}" alt="Gallery Image 1" width="100%" onclick="openLightbox(this)">
+        </div>
+
+        <!-- Image 2 -->
+        <div class="gallery-item" data-animate>
+            <img src="{{ url_for('static', filename='bridal3.jpg') }}" alt="Gallery Image 2" width="100%" onclick="openLightbox(this)">
+        </div>
+
+        <!-- Image 3 -->
+        <div class="gallery-item" data-animate>
+            <img src="{{ url_for('static', filename='bridal1.jpg') }}" alt="Gallery Image 3" width="100%" onclick="openLightbox(this)">
+        </div>
+
+        <!-- Image 4 -->
+        <div class="gallery-item" data-animate>
+            <img src="{{ url_for('static', filename='reception1.jpg') }}" alt="Gallery Image 4"width="100%" onclick="openLightbox(this)">
+        </div>
+
+        <!-- Image 5 -->
+        <div class="gallery-item" data-animate>
+            <img src="{{ url_for('static', filename='mehendi1.jpg') }}" alt="Gallery Image 5" width="100%" onclick="openLightbox(this)">
+        </div>
+
+        
+
+    </div>
+</section>
+
+<!-- LIGHTBOX POPUP -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+</div>
+
+{% endblock %}
