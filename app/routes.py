@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from app.demo_data import services, gallery_images, testimonials
-
-main = Blueprint('main', __name__)
+main = Blueprint('main', __name__, template_folder='templates')
 
 @main.route('/')
 def home():
