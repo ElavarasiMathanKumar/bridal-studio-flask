@@ -3,125 +3,153 @@
 -------------------------------------------------- */
 
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: #ffffff;
     color: #333;
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden;
 }
 
-/* Section spacing */
-.section {
-    padding: 60px 20px;
-}
-
-/* Headings */
 h1, h2, h3, h4, h5 {
     font-weight: 700;
-    color: #222;
 }
 
-/* Paragraphs */
 p {
-    line-height: 1.6;
+    line-height: 1.7;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.8;
 }
 
 /* --------------------------------------------------
    NAVBAR
 -------------------------------------------------- */
 
-.navbar-custom a {
-    transition: color .3s ease, border-bottom .3s ease;
-}
-
-.navbar-custom a:hover {
-    color: #d63384;
-}
-
-/* Mobile menu button */
-.mobile-menu-btn {
+.premium-navbar {
     background: #fff;
-    border-bottom: 1px solid #eee;
+    padding: 12px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-/* --------------------------------------------------
-   BUTTONS
--------------------------------------------------- */
-
-.btn-primary,
-.btn {
+.navbar-nav .nav-link {
     font-weight: 600;
-    border-radius: 6px;
+    margin: 0 10px;
+    color: #444 !important;
 }
 
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
-/* Pink theme button */
-.btn-pink {
-    background: #d63384;
-    color: white;
-    border: none;
-}
-
-.btn-pink:hover {
-    background: #b82a6f;
+.navbar-nav .nav-link.active {
+    color: #d63384 !important;
+    border-bottom: 2px solid #d63384;
+    padding-bottom: 4px;
 }
 
 /* --------------------------------------------------
-   FORMS
+   HERO / SECTIONS
 -------------------------------------------------- */
 
-form input,
-form select,
-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    font-size: 15px;
+section {
+    padding: 60px 0;
 }
 
-form input:focus,
-form select:focus,
-form textarea:focus {
-    border-color: #d63384;
-    outline: none;
-    box-shadow: 0 0 5px rgba(214, 51, 132, 0.3);
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* --------------------------------------------------
+   ANIMATION SYSTEM (MATCHES NEW BASE.HTML)
+-------------------------------------------------- */
+
+[data-animate] {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+}
+
+.animate-hide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --------------------------------------------------
    GALLERY
 -------------------------------------------------- */
 
-.gallery-thumb {
-    border-radius: 8px;
-    transition: transform .3s ease, box-shadow .3s ease;
+.gallery-img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-.gallery-thumb:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+.gallery-img:hover {
+    transform: scale(1.03);
 }
 
 /* Lightbox */
-.lightbox-bg {
-    display: none;
+#lightbox {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0,0,0,0.85);
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 2000;
 }
 
-.lightbox-img {
+#lightbox-img {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
+}
+
+/* --------------------------------------------------
+   BOOKING FORM
+-------------------------------------------------- */
+
+.booking-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #eee;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.btn-dark {
+    background: #000;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 18px;
+}
+
+/* --------------------------------------------------
+   CONTACT PAGE
+-------------------------------------------------- */
+
+.contact-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #eee;
 }
 
 /* --------------------------------------------------
@@ -129,69 +157,10 @@ form textarea:focus {
 -------------------------------------------------- */
 
 .whatsapp-btn {
-    transition: transform .3s ease;
-}
-
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-}
-
-/* --------------------------------------------------
-   FOOTER
--------------------------------------------------- */
-
-footer {
-    background: #f8f9fa;
-    padding: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
-}
-
-/* --------------------------------------------------
-   ANIMATIONS
--------------------------------------------------- */
-
-[data-animate] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all .6s ease;
-}
-
-[data-animate].visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --------------------------------------------------
-   CARDS
--------------------------------------------------- */
-
-.card {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.card img {
-    border-bottom: 1px solid #eee;
-}
-
-/* --------------------------------------------------
-   RESPONSIVE FIXES
--------------------------------------------------- */
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 26px;
-    }
-    h2 {
-        font-size: 22px;
-    }
-    .call-btn {
     position: fixed;
-    bottom: 90px;
+    bottom: 20px;
     right: 20px;
-    background: #0d6efd;
+    background: #25D366;
     color: white;
     font-size: 26px;
     padding: 12px 16px;
@@ -199,478 +168,66 @@ footer {
     text-decoration: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 999;
-    transition: transform .3s ease;
 }
 
-.call-btn:hover {
-    transform: scale(1.1);
-}
-.hero-img {
-    height: 70vh;
-    object-fit: cover;
-    filter: brightness(80%);
-}
-.card {
-    border-radius: 12px;
-    transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-:root {
-    --theme-pink: #d63384;
-}
-
-a, .text-pink {
-    color: var(--theme-pink);
-}
-
-.btn-pink {
-    background: var(--theme-pink);
-    color: white;
-}
-
-.btn-pink:hover {
-    background: #b82a6f;
-}
-.navbar-custom {
-    backdrop-filter: blur(10px);
-    background: rgba(255,255,255,0.9);
-}
-.gallery-thumb:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-body {
-    animation: fadeIn .8s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
 /* --------------------------------------------------
    PRELOADER
 -------------------------------------------------- */
 
 #preloader {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 3000;
+    z-index: 2000;
 }
 
 .loader {
-    width: 60px;
-    height: 60px;
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid #d63384;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #d63384;
+    border-top-color: transparent;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 0.8s linear infinite;
 }
 
-/* Spin animation */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-body {
-    opacity: 0;
-    transition: opacity .6s ease;
+    to { transform: rotate(360deg); }
 }
 
-body.loaded {
-    opacity: 1;
-}
-/* ✅ Slider Styling */
-.slider-wrapper {
-    position: relative;
-}
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
 
-.slider-img {
-    height: 70vh;
-    object-fit: cover;
-}
-
-.slider-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-}
-
-.slider-text {
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: white;
-    animation: fadeUp 1.2s ease;
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translate(-50%, 20px); }
-    to { opacity: 1; transform: translate(-50%, 0); }
-}
-
-/* ✅ Service Cards */
-.service-card {
-    transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.service-icon {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-/* ✅ Bridal Color Palette */
-:root {
-    --primary: #d4a373;
-    --secondary: #f7e9d7;
-    --dark: #3a2e2e;
-}
-/* Large Icons */
-.service-icon-large {
-    font-size: 50px;
-    color: var(--primary);
-}
-
-/* Service Box Hover Effect */
-.service-box {
-    transition: transform .3s ease, box-shadow .3s ease;
-    background: #fff;
-}
-
-.service-box:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-
-
-
-.gallery-item img:hover {
-    transform: scale(1.08);
-}
-
-/* ✅ Responsive */
-@media (max-width: 992px) {
-    .gallery-grid {
-        column-count: 2;
-    }
-}
-
-@media (max-width: 576px) {
-    .gallery-grid {
-        column-count: 1;
-    }
-}
-
-/* ✅ Lightbox */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-    animation: fadeIn .4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-/* Contact Info Box */
-.contact-info-box {
-    background: #fff;
-    border-radius: 12px;
-}
-
-.contact-item {
-    font-size: 16px;
-    margin-bottom: 12px;
-}
-
-.contact-icon {
-    font-size: 22px;
-    margin-right: 8px;
-    color: var(--primary);
-}
-
-/* Contact Form */
-.contact-form-box input,
-.contact-form-box textarea {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 12px;
-}
-
-.contact-form-box input:focus,
-.contact-form-box textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 5px rgba(212, 163, 115, 0.4);
-}
-
-/* Map */
-.map-container {
-    overflow: hidden;
-    border-radius: 12px;
-}
-.premium-navbar {
-    padding: 15px 0;
-    transition: all .3s ease;
-}
-
-.premium-navbar .nav-link {
-    font-weight: 600;
-    margin-left: 15px;
-    color: #444 !important;
-    transition: color .3s ease;
-}
-
-.premium-navbar .nav-link:hover {
-    color: var(--primary) !important;
-}
-
-.premium-navbar .nav-link.active {
-    color: var(--primary) !important;
-    border-bottom: 2px solid var(--primary);
-}
 .premium-footer {
-    background: #f8f5f2;
-    border-top: 1px solid #eee;
-}
-
-.premium-footer h4 {
-    color: var(--primary);
-}
-.fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all .7s ease;
-}
-
-.fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fade-in {
-    opacity: 0;
-    transition: opacity .7s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-}
-.testimonial-box {
-    background: #fff;
-    border-left: 4px solid var(--primary);
-}
-/* ✅ Booking Form Container */
-.booking-container {
-    max-width: 650px;
-    margin: auto;
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 35px;
-    border: 1px solid #eee;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-/* ✅ Labels */
-.booking-container .form-label {
-    font-weight: 600;
-    color: #3a2e2e;
-}
-
-/* ✅ Inputs, Selects, Textareas */
-.booking-container input,
-.booking-container select,
-.booking-container textarea {
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    padding: 14px;
-    font-size: 16px;
-    background: #fafafa;
-    transition: all .3s ease;
-}
-
-/* ✅ Input Focus Effect */
-.booking-container input:focus,
-.booking-container select:focus,
-.booking-container textarea:focus {
-    border-color: var(--primary);
-    background: #fff;
-    box-shadow: 0 0 8px rgba(212, 163, 115, 0.35);
-}
-
-/* ✅ Submit Button */
-.booking-container button {
-    background: var(--primary);
-    border: none;
-    padding: 12px 40px;
-    font-size: 18px;
-    border-radius: 8px;
-    transition: all .3s ease;
-}
-
-.booking-container button:hover {
-    background: #b8865b;
-    transform: translateY(-3px);
-}
-
-/* ✅ Placeholder Text */
-.booking-container input::placeholder,
-.booking-container textarea::placeholder {
-    color: #999;
-}
-
-/* ✅ Mobile Responsive */
-@media (max-width: 576px) {
-    .booking-container {
-        padding: 25px;
-    }
-}
-/* ✅ Make all slider images same size */
-.slider-img {
-    width: 100%;
-    height: 380px;   /* Adjust this number to make slider smaller or bigger */
-    object-fit: cover;
-    border-radius: 8px; /* optional */
-}
-
-/* ✅ Ensure slider wrapper doesn't stretch */
-.slider-wrapper {
-    height: 380px;   /* Must match slider-img height */
-    overflow: hidden;
-    position: relative;
-}
-.slider-img,
-.slider-wrapper {
-    height: 300px;
-}
-
-/* ✅ Pinterest Masonry Grid */
-.gallery-grid {
-    column-count: 3;
-    column-gap: 15px;
-    width: 100%;
-}
-
-/* ✅ Each item stays intact inside its column */
-.gallery-item {
-    break-inside: avoid;
-    margin-bottom: 15px;
-}
-
-/* ✅ Force all images to same height (Pinterest style) */
-.gallery-item img {
-    width: 100px;
-    height: 180px;          /* Adjust this number to resize */
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-}
-@media (max-width: 992px) {
-    .gallery-grid {
-        column-count: 2;
-    }
-}
-
-@media (max-width: 576px) {
-    .gallery-grid {
-        column-count: 1;
-    }
-}
-/* ✅ Contact Info Box */
-.contact-info-box {
-    background: #fff;
-    border-radius: 12px;
-}
-
-.contact-item {
-    font-size: 16px;
-    margin-bottom: 12px;
-}
-
-.contact-icon {
-    font-size: 22px;
-    margin-right: 8px;
-    color: var(--primary);
-}
-
-/* ✅ Contact Form */
-.contact-form-box input,
-.contact-form-box textarea {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 12px;
-}
-
-.contact-form-box input:focus,
-.contact-form-box textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 5px rgba(212, 163, 115, 0.4);
-}
-
-/* ✅ Popup Background */
-.success-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.55);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-/* ✅ Popup Box */
-.popup-box {
-    background: #fff;
-    padding: 25px 35px;
-    border-radius: 12px;
+    background: #f8f9fa;
+    padding: 40px 0;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    animation: fadeIn .4s ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+.premium-footer p {
+    color: #666;
 }
+
+/* --------------------------------------------------
+   RESPONSIVE DESIGN
+-------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .booking-container {
+        padding: 20px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+    }
 }

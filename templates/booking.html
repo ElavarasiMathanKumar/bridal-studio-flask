@@ -16,19 +16,19 @@
             <!-- Name -->
             <div class="mb-3">
                 <label class="form-label fw-bold">Full Name</label>
-                <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter your name" required>
+                <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
             </div>
 
             <!-- Phone -->
             <div class="mb-3">
                 <label class="form-label fw-bold">Phone Number</label>
-                <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter your phone number" required>
+                <input type="tel" name="phone" class="form-control" placeholder="Enter your phone number" required>
             </div>
 
             <!-- Service -->
             <div class="mb-3">
                 <label class="form-label fw-bold">Select Service</label>
-                <select name="service" class="form-select form-select-lg" required>
+                <select name="service" class="form-select" required>
                     <option value="">Choose a service</option>
                     <option>Bridal Makeup</option>
                     <option>Bridal Hairstyling</option>
@@ -42,16 +42,16 @@
             <!-- Date -->
             <div class="mb-3">
                 <label class="form-label fw-bold">Preferred Date</label>
-                <input type="date" name="date" class="form-control form-control-lg" required>
+                <input type="date" name="date" class="form-control" required>
             </div>
 
             <!-- Time -->
             <div class="mb-3">
                 <label class="form-label fw-bold">Preferred Time</label>
-                <input type="time" name="time" class="form-control form-control-lg" required>
+                <input type="time" name="time" class="form-control" required>
             </div>
 
-            <!-- Message -->
+            <!-- Notes -->
             <div class="mb-3">
                 <label class="form-label fw-bold">Additional Notes</label>
                 <textarea name="message" class="form-control" rows="4" placeholder="Any special requests?"></textarea>
@@ -69,45 +69,65 @@
     </div>
 </section>
 
+<!-- ✅ SUCCESS POPUP -->
+<div id="successPopup"
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+            background:rgba(0,0,0,0.6); justify-content:center; align-items:center;
+            z-index:2000; color:white; font-size:24px; font-weight:bold;">
+    Booking Confirmed ✅
+</div>
+
+<!-- ✅ BOOKING FORM SCRIPT -->
 <script>
-document.getElementById("bookingForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
 
-    // ✅ Show popup
-    document.getElementById("successPopup").style.display = "flex";
+    const form = document.getElementById("bookingForm");
+    const popup = document.getElementById("successPopup");
 
-    let name = document.querySelector("input[name='name']").value;
-    let phone = document.querySelector("input[name='phone']").value;
-    let service = document.querySelector("select[name='service']").value;
-    let date = document.querySelector("input[name='date']").value;
-    let time = document.querySelector("input[name='time']").value;
-    let message = document.querySelector("textarea[name='message']").value;
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
 
-    let whatsappNumber = "918870685588";
+        // ✅ Show popup
+        popup.style.display = "flex";
 
-    let whatsappURL =
-        "https://api.whatsapp.com/send?phone=" + whatsappNumber +
-        "&text=" + encodeURIComponent(
-            "New Booking Request:\n" +
-            "-------------------------\n" +
-            "Name: " + name + "\n" +
-            "Phone: " + phone + "\n" +
-            "Service: " + service + "\n" +
-            "Date: " + date + "\n" +
-            "Time: " + time + "\n" +
-            "Notes: " + message
-        );
+        // ✅ Collect form values
+        let name = document.querySelector("input[name='name']").value;
+        let phone = document.querySelector("input[name='phone']").value;
+        let service = document.querySelector("select[name='service']").value;
+        let date = document.querySelector("input[name='date']").value;
+        let time = document.querySelector("input[name='time']").value;
+        let message = document.querySelector("textarea[name='message']").value;
 
-    // ✅ Open WhatsApp
-    window.open(whatsappURL, "_blank");
+        // ✅ WhatsApp number
+        let whatsappNumber = "918870685588";
 
-    // ✅ Clear form
-    document.getElementById("bookingForm").reset();
+        // ✅ Build WhatsApp message
+        let whatsappURL =
+            "https://api.whatsapp.com/send?phone=" + whatsappNumber +
+            "&text=" + encodeURIComponent(
+                "New Booking Request:\n" +
+                "-------------------------\n" +
+                "Name: " + name + "\n" +
+                "Phone: " + phone + "\n" +
+                "Service: " + service + "\n" +
+                "Date: " + date + "\n" +
+                "Time: " + time + "\n" +
+                "Notes: " + message
+            );
 
-    // ✅ Hide popup after 3 seconds
-    setTimeout(() => {
-        document.getElementById("successPopup").style.display = "none";
-    }, 3000);
+        // ✅ Open WhatsApp
+        window.open(whatsappURL, "_blank");
+
+        // ✅ Reset form
+        form.reset();
+
+        // ✅ Hide popup after 3 seconds
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 3000);
+    });
+
 });
 </script>
+
 {% endblock %}
