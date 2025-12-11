@@ -8,9 +8,6 @@ def create_app():
         template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates')
     )
 
-    # No database configuration needed for demo
-    # No SQLAlchemy initialization
-
     from app.routes import main
     app.register_blueprint(main)
 
