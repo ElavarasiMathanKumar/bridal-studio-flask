@@ -1,27 +1,105 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="text-center my-4 fade-up">
-    <h1 class="display-5 fw-bold">Frequently Asked Questions</h1>
+<!-- PAGE TITLE -->
+<div class="text-center my-4" data-animate>
+    <h1 class="display-5 fw-bold text-dark">Frequently Asked Questions</h1>
+    <p class="lead text-muted">Find answers to the most common questions</p>
 </div>
 
+<!-- FAQ SECTION -->
 <section class="my-5">
+    <div class="container" data-animate>
 
-    <div class="faq-item fade-up">
-        <h4 class="fw-bold">How early should I book?</h4>
-        <p class="text-muted">We recommend booking at least 2–3 weeks in advance.</p>
+        <div class="accordion" id="faqAccordion">
+
+            <!-- Q1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="q1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+                        What services do you offer?
+                    </button>
+                </h2>
+                <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We offer bridal makeup, hairstyling, saree draping, mehandi, party makeup, and full bridal packages.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="q2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+                        How do I book an appointment?
+                    </button>
+                </h2>
+                <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        You can book directly through our website using the booking form or contact us via WhatsApp.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="q3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+                        Do you provide home services?
+                    </button>
+                </h2>
+                <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, we provide home and on‑location bridal services based on availability and distance.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="q4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4">
+                        What products do you use?
+                    </button>
+                </h2>
+                <div id="a4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We use premium, skin‑friendly, long‑lasting products from top brands to ensure a flawless finish.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="q5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5">
+                        Do you offer trial makeup sessions?
+                    </button>
+                </h2>
+                <div id="a5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, trial sessions are available upon request. Contact us for scheduling and pricing.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="q6">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a6">
+                        What payment methods do you accept?
+                    </button>
+                </h2>
+                <div id="a6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We accept UPI, bank transfer, and cash payments.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="faq-item fade-up">
-        <h4 class="fw-bold">Do you offer trial makeup?</h4>
-        <p class="text-muted">Yes, trial sessions are available upon request.</p>
-    </div>
-
-    <div class="faq-item fade-up">
-        <h4 class="fw-bold">Do you travel to the venue?</h4>
-        <p class="text-muted">Yes, we offer on‑location services.</p>
-    </div>
-
 </section>
 
 {% endblock %}

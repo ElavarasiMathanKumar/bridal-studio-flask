@@ -1,125 +1,123 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- ✅ PAGE TITLE -->
-<div class="text-center my-4 fade-up">
+<!-- PAGE TITLE -->
+<div class="text-center my-4" data-animate>
     <h1 class="display-5 fw-bold text-dark">Contact Us</h1>
-    <p class="lead text-muted">We’d love to hear from you</p>
+    <p class="lead text-muted">We’re here to help you look stunning on your special day</p>
 </div>
 
-<!-- ✅ CONTACT SECTION -->
+<!-- CONTACT SECTION -->
 <section class="my-5">
-    <div class="row g-4">
+    <div class="container">
 
-        <!-- ✅ CONTACT INFO -->
-        <div class="col-md-5 fade-up">
-            <div class="contact-info-box shadow-sm p-4 rounded">
+        <div class="row g-4">
 
-                <h4 class="fw-bold mb-3">Get in Touch</h4>
+            <!-- Contact Info -->
+            <div class="col-md-5" data-animate>
+                <div class="contact-box shadow rounded p-4 bg-white">
 
-                <p class="contact-item">
-                    <span class="contact-icon">📞</span>
-                    <strong>Phone:</strong> +91 88706 85588
-                </p>
+                    <h4 class="fw-bold mb-3">Get in Touch</h4>
 
-                <p class="contact-item">
-                    <span class="contact-icon">💬</span>
-                    <strong>WhatsApp:</strong> +91 88706 85588
-                </p>
+                    <p class="text-muted mb-2">
+                        📍 <strong>Location:</strong><br>
+                        Karaikal, Puducherry, India
+                    </p>
 
-                <p class="contact-item">
-                    <span class="contact-icon">📧</span>
-                    <strong>Email:</strong> bridalstudio@example.com
-                </p>
+                    <p class="text-muted mb-2">
+                        📞 <strong>Phone:</strong><br>
+                        +91 8870685588
+                    </p>
 
-                <p class="contact-item">
-                    <span class="contact-icon">📍</span>
-                    <strong>Location:</strong> Karaikal, Puducherry, India
-                </p>
+                    <p class="text-muted mb-4">
+                        ✉️ <strong>Email:</strong><br>
+                        bridalstudio@example.com
+                    </p>
 
+                    <a href="https://wa.me/918870685588" target="_blank" class="btn btn-dark px-4">
+                        Chat on WhatsApp
+                    </a>
+
+                </div>
             </div>
-        </div>
 
-        <!-- ✅ CONTACT FORM -->
-        <div class="col-md-7 fade-up">
-            <div class="contact-form-box shadow-sm p-4 rounded">
+            <!-- Contact Form -->
+            <div class="col-md-7" data-animate>
+                <div class="contact-box shadow rounded p-4 bg-white">
 
-                <form id="contactForm">
+                    <h4 class="fw-bold mb-3">Send Us a Message</h4>
 
-                    <!-- Name -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Your Name</label>
-                        <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter your name" required>
-                    </div>
+                    <form id="contactForm">
 
-                    <!-- Email -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Email Address</label>
-                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter your email" required>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Your Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
 
-                    <!-- Message -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Message</label>
-                        <textarea name="message" class="form-control" rows="5" placeholder="Write your message..." required></textarea>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Phone Number</label>
+                            <input type="tel" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                        </div>
 
-                    <!-- Submit -->
-                    <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-dark btn-lg px-5">
-                            Send Message
-                        </button>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Message</label>
+                            <textarea name="message" class="form-control" rows="4" placeholder="How can we help you?" required></textarea>
+                        </div>
 
-                </form>
+                        <button type="submit" class="btn btn-dark px-4">Send Message</button>
 
+                    </form>
+
+                </div>
             </div>
+
         </div>
 
     </div>
 </section>
 
-<!-- ✅ SUCCESS POPUP -->
-<div id="successPopup" class="success-popup">
-    <div class="popup-box">
-        <h4>Opening WhatsApp…</h4>
-        <p>Please click “Continue to WhatsApp” to send your message.</p>
+<!-- GOOGLE MAP -->
+<section class="my-5">
+    <div class="container" data-animate>
+        <div class="shadow rounded overflow-hidden">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.123456789!2d79.838!3d10.925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a553e123456789%3A0xabcdef123456789!2sKaraikal%2C%20Puducherry!5e0!3m2!1sen!2sin!4v0000000000"
+                width="100%" height="350" style="border:0;" allowfullscreen loading="lazy">
+            </iframe>
+        </div>
     </div>
-</div>
+</section>
 
-<!-- ✅ WHATSAPP SCRIPT -->
+<!-- ✅ CONTACT FORM SCRIPT -->
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
 
-    // ✅ Show popup
-    document.getElementById("successPopup").style.display = "flex";
+    const form = document.getElementById("contactForm");
 
-    let name = document.querySelector("input[name='name']").value;
-    let email = document.querySelector("input[name='email']").value;
-    let message = document.querySelector("textarea[name='message']").value;
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
 
-    let whatsappNumber = "918870685588"; // ✅ Your WhatsApp number
+        let name = document.querySelector("input[name='name']").value;
+        let phone = document.querySelector("input[name='phone']").value;
+        let message = document.querySelector("textarea[name='message']").value;
 
-    let whatsappURL = "https://api.whatsapp.com/send?phone=" + whatsappNumber +
-        "&text=" + encodeURIComponent(
-            "New Contact Message:\n" +
-            "-------------------------\n" +
-            "Name: " + name + "\n" +
-            "Email: " + email + "\n" +
-            "Message: " + message
-        );
+        let whatsappNumber = "918870685588";
 
-    // ✅ Open WhatsApp
-    window.open(whatsappURL, "_blank");
+        let whatsappURL =
+            "https://api.whatsapp.com/send?phone=" + whatsappNumber +
+            "&text=" + encodeURIComponent(
+                "New Contact Message:\n" +
+                "-------------------------\n" +
+                "Name: " + name + "\n" +
+                "Phone: " + phone + "\n" +
+                "Message: " + message
+            );
 
-    // ✅ Clear form
-    document.getElementById("contactForm").reset();
+        window.open(whatsappURL, "_blank");
 
-    // ✅ Hide popup after 3 seconds
-    setTimeout(() => {
-        document.getElementById("successPopup").style.display = "none";
-    }, 3000);
+        form.reset();
+    });
+
 });
 </script>
 

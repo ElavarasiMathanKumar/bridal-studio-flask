@@ -1,127 +1,146 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- ✅ HERO SLIDER WITH OVERLAY + TEXT -->
-<div id="heroCarousel" class="carousel slide mb-4" data-bs-ride="carousel" data-animate>
-    <div class="carousel-inner">
+<!-- ✅ HERO SECTION -->
+<section class="mb-5">
+    <div class="container">
 
-        <div class="carousel-item active">
-            <div class="slider-wrapper">
-                <img src="{{ url_for('static', filename='slider1.jpg') }}" class="d-block w-100 slider-img">
-                <div class="slider-overlay"></div>
-                <div class="slider-text">
-                    <h1 class="display-4 fw-bold">Bridal Studio</h1>
-                    <p class="lead">Where Beauty Meets Elegance</p>
-                </div>
-            </div>
-        </div>
+        <div class="row align-items-center">
 
-        <div class="carousel-item">
-            <div class="slider-wrapper">
-                <img src="{{ url_for('static', filename='slider2.jpg') }}" width="100%" class="d-block w-100 slider-img">
-                <div class="slider-overlay"></div>
-                <div class="slider-text">
-                    <h1 class="display-4 fw-bold">Luxury Makeup</h1>
-                    <p class="lead">Crafted for Your Special Day</p>
-                </div>
-            </div>
-        </div>
+            <!-- Text -->
+            <div class="col-md-6" data-animate>
+                <h1 class="display-5 fw-bold text-dark">
+                    Transforming Brides Into Stunning Masterpieces
+                </h1>
+                <p class="lead text-muted mt-3">
+                    Experience premium bridal makeup, hairstyling, saree draping, and complete bridal packages crafted with passion and perfection.
+                </p>
 
-        <div class="carousel-item">
-            <div class="slider-wrapper">
-                <img src="{{ url_for('static', filename='slider3.jpg') }}" class="d-block w-100 slider-img">
-                <div class="slider-overlay"></div>
-                <div class="slider-text">
-                    <h1 class="display-4 fw-bold">Timeless Beauty</h1>
-                    <p class="lead">Perfect Looks for Every Bride</p>
-                </div>
+                <a href="{{ url_for('main.booking') }}" class="btn btn-dark btn-lg mt-3 px-4">
+                    Book Your Appointment
+                </a>
             </div>
+
+            <!-- Hero Image -->
+            <div class="col-md-6 text-center" data-animate>
+                <img src="{{ url_for('static', filename='slider1.jpg') }}" 
+                     class="img-fluid rounded shadow" 
+                     alt="Bridal Makeup">
+            </div>
+
         </div>
 
     </div>
-</div>
-
-<!-- ✅ TITLE SECTION -->
-<div class="text-center my-4" data-animate>
-    <h1 class="display-5 fw-bold text-dark">Welcome to Our Bridal Studio</h1>
-    <p class="lead text-muted">Makeup • Hair • Styling • Beauty</p>
-</div>
+</section>
 
 <!-- ✅ ABOUT SECTION -->
-<section class="my-5" data-animate>
-    <h2 class="text-center mb-3 fw-bold">Why Brides Choose Us</h2>
-    <p class="text-center text-muted px-3">
-        We specialize in premium bridal makeup, elegant hairstyling, and flawless beauty transformations.
-        Every look is crafted with precision, passion, and luxury.
-    </p>
-</section>
+<section class="my-5">
+    <div class="container">
 
-<!-- ✅ SERVICES GRID WITH ICONS -->
-<section class="my-5" data-animate>
-    <h2 class="text-center mb-4 fw-bold">Our Services</h2>
+        <div class="row align-items-center">
 
-    <div class="row text-center">
-
-        <div class="col-md-4 mb-4">
-            <div class="service-card shadow-sm p-4 rounded">
-                <div class="service-icon">💄</div>
-                <h4 class="fw-bold">Bridal Makeup</h4>
-                <p class="text-muted">Soft glam, HD makeup, and premium bridal looks.</p>
+            <div class="col-md-6" data-animate>
+                <img src="{{ url_for('static', filename='slider2.jpg') }}" 
+                     class="img-fluid rounded shadow" 
+                     alt="About Bridal Studio">
             </div>
-        </div>
 
-        <div class="col-md-4 mb-4">
-            <div class="service-card shadow-sm p-4 rounded">
-                <div class="service-icon">💇‍♀️</div>
-                <h4 class="fw-bold">Hairstyling</h4>
-                <p class="text-muted">Elegant buns, curls, and modern bridal styles.</p>
-            </div>
-        </div>
+            <div class="col-md-6" data-animate>
+                <h2 class="fw-bold">About Our Studio</h2>
+                <p class="text-muted mt-3">
+                    We specialize in premium bridal transformations with a focus on elegance, comfort, and long‑lasting beauty. 
+                    Our goal is to make every bride feel confident, radiant, and picture‑perfect on her special day.
+                </p>
 
-        <div class="col-md-4 mb-4">
-            <div class="service-card shadow-sm p-4 rounded">
-                <div class="service-icon">✨</div>
-                <h4 class="fw-bold">Party Makeup</h4>
-                <p class="text-muted">Glam looks for events, shoots, and celebrations.</p>
+                <p class="text-muted">
+                    With years of experience and a passion for creativity, we bring out the best version of you using high‑quality products and professional techniques.
+                </p>
+
+                <a href="{{ url_for('main.services_page') }}" class="btn btn-outline-dark mt-3 px-4">
+                    Explore Services
+                </a>
             </div>
+
         </div>
 
     </div>
+</section>
 
-    <div class="text-center mt-3">
-        <a href="{{ url_for('main.services_page') }}" class="btn btn-dark px-4 py-2">
+<!-- ✅ SERVICES PREVIEW -->
+<section class="my-5">
+    <div class="container text-center">
+
+        <h2 class="fw-bold mb-4" data-animate>Our Top Services</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4" data-animate>
+                <div class="p-4 shadow rounded bg-white">
+                    <div style="font-size: 40px;">💄</div>
+                    <h5 class="fw-bold mt-3">Bridal Makeup</h5>
+                    <p class="text-muted">Flawless, elegant, and long‑lasting bridal looks.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-animate>
+                <div class="p-4 shadow rounded bg-white">
+                    <div style="font-size: 40px;">💇‍♀️</div>
+                    <h5 class="fw-bold mt-3">Bridal Hairstyling</h5>
+                    <p class="text-muted">Modern and traditional hairstyles that last all day.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-animate>
+                <div class="p-4 shadow rounded bg-white">
+                    <div style="font-size: 40px;">👗</div>
+                    <h5 class="fw-bold mt-3">Saree Draping</h5>
+                    <p class="text-muted">Perfect draping that enhances your bridal elegance.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="{{ url_for('main.services_page') }}" class="btn btn-dark mt-4 px-4">
             View All Services
         </a>
+
     </div>
 </section>
+
+<!-- ✅ GALLERY PREVIEW -->
 <section class="my-5">
-    <h2 class="text-center fw-bold mb-4 fade-up">What Our Brides Say</h2>
+    <div class="container text-center">
 
-    <div id="testimonialCarousel" class="carousel slide fade-up" data-bs-ride="carousel">
-        <div class="carousel-inner">
+        <h2 class="fw-bold mb-4" data-animate>Our Work</h2>
 
-            <div class="carousel-item active text-center">
-                <div class="testimonial-box shadow-sm p-4 rounded">
-                    <p class="lead">“Absolutely loved my bridal look! The makeup stayed flawless all day.”</p>
-                    <h5 class="fw-bold mt-3">— Priya</h5>
-                </div>
+        <div class="row g-4">
+
+           
+
+            <div class="col-md-4 col-sm-6" data-animate>
+                <img src="{{ url_for('static', filename='slider4.jpg') }}" 
+                     class="gallery-img shadow" 
+                     onclick="openLightbox(this)">
             </div>
 
-            <div class="carousel-item text-center">
-                <div class="testimonial-box shadow-sm p-4 rounded">
-                    <p class="lead">“Professional, friendly, and incredibly talented. Highly recommended!”</p>
-                    <h5 class="fw-bold mt-3">— Aishwarya</h5>
-                </div>
-            </div>
-
-            <div class="carousel-item text-center">
-                <div class="testimonial-box shadow-sm p-4 rounded">
-                    <p class="lead">“My hairstyle and makeup were perfect for my reception.”</p>
-                    <h5 class="fw-bold mt-3">— Divya</h5>
-                </div>
+            <div class="col-md-4 col-sm-6" data-animate>
+                <img src="{{ url_for('static', filename='slider5.jpg') }}" 
+                     class="gallery-img shadow" 
+                     onclick="openLightbox(this)">
             </div>
 
         </div>
+
+        <a href="{{ url_for('main.gallery_page') }}" class="btn btn-outline-dark mt-4 px-4">
+            View Full Gallery
+        </a>
+
     </div>
 </section>
+
+<!-- ✅ LIGHTBOX OVERLAY -->
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
+
 {% endblock %}

@@ -1,36 +1,75 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="text-center my-4 fade-up">
-    <h1 class="display-5 fw-bold">Pricing</h1>
-    <p class="lead text-muted">Transparent & affordable packages</p>
+<!-- PAGE TITLE -->
+<div class="text-center my-4" data-animate>
+    <h1 class="display-5 fw-bold text-dark">Pricing & Packages</h1>
+    <p class="lead text-muted">Choose the perfect package for your special day</p>
 </div>
 
+<!-- PRICING SECTION -->
 <section class="my-5">
-    <div class="row g-4">
+    <div class="container">
 
-        <div class="col-md-4 fade-up">
-            <div class="price-card shadow-sm p-4 rounded text-center">
-                <h3 class="fw-bold">Bridal Makeup</h3>
-                <h2 class="text-primary fw-bold mt-3">₹12,000</h2>
-                <p class="text-muted">HD / Airbrush</p>
-            </div>
-        </div>
+        <div class="row g-4">
 
-        <div class="col-md-4 fade-up">
-            <div class="price-card shadow-sm p-4 rounded text-center">
-                <h3 class="fw-bold">Party Makeup</h3>
-                <h2 class="text-primary fw-bold mt-3">₹4,000</h2>
-                <p class="text-muted">Soft glam</p>
-            </div>
-        </div>
+            <!-- Basic Package -->
+            <div class="col-md-4" data-animate>
+                <div class="p-4 shadow rounded bg-white text-center">
+                    <h4 class="fw-bold mb-3">Basic Makeup</h4>
+                    <h2 class="fw-bold text-dark">₹2,500</h2>
+                    <p class="text-muted mt-2">Perfect for small events and casual functions</p>
 
-        <div class="col-md-4 fade-up">
-            <div class="price-card shadow-sm p-4 rounded text-center">
-                <h3 class="fw-bold">Full Bridal Package</h3>
-                <h2 class="text-primary fw-bold mt-3">₹25,000</h2>
-                <p class="text-muted">Makeup + Hair + Draping</p>
+                    <ul class="list-unstyled mt-3 text-muted">
+                        <li>✅ Light Makeup</li>
+                        <li>✅ Basic Hairstyling</li>
+                        <li>✅ Simple Saree Draping</li>
+                    </ul>
+
+                    <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-3 px-4">Book Now</a>
+                </div>
             </div>
+
+            <!-- Popular Package -->
+            <div class="col-md-4" data-animate>
+                <div class="p-4 shadow rounded bg-white text-center border border-dark">
+
+                    <div class="badge bg-dark text-white mb-3 px-3 py-2">Most Popular</div>
+
+                    <h4 class="fw-bold mb-3">Bridal Makeup</h4>
+                    <h2 class="fw-bold text-dark">₹8,000</h2>
+                    <p class="text-muted mt-2">Ideal for brides who want a flawless, elegant look</p>
+
+                    <ul class="list-unstyled mt-3 text-muted">
+                        <li>✅ HD Bridal Makeup</li>
+                        <li>✅ Premium Hairstyling</li>
+                        <li>✅ Saree Draping</li>
+                        <li>✅ Accessories Styling</li>
+                    </ul>
+
+                    <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-3 px-4">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Full Bridal Package -->
+            <div class="col-md-4" data-animate>
+                <div class="p-4 shadow rounded bg-white text-center">
+                    <h4 class="fw-bold mb-3">Full Bridal Package</h4>
+                    <h2 class="fw-bold text-dark">₹15,000</h2>
+                    <p class="text-muted mt-2">Complete transformation for your big day</p>
+
+                    <ul class="list-unstyled mt-3 text-muted">
+                        <li>✅ HD Bridal Makeup</li>
+                        <li>✅ Advanced Hairstyling</li>
+                        <li>✅ Saree Draping</li>
+                        <li>✅ Mehandi (Both Hands)</li>
+                        <li>✅ Accessories Styling</li>
+                    </ul>
+
+                    <a href="{{ url_for('main.booking') }}" class="btn btn-dark mt-3 px-4">Book Now</a>
+                </div>
+            </div>
+
         </div>
 
     </div>
